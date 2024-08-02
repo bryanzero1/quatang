@@ -1,63 +1,89 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 //EN">
 <html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>CSS3 Tricks: Falling Snow</title>
-
-<link href="style.css" rel="stylesheet" type="text/css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Confession</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            display: inline-block;
+            animation: pulse 1s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 150px;
+            border-radius: 50px 50px 0 0;
+            background: red;
+        }
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5e5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #ff3e3e;
+        }
+    </style>
 </head>
-
 <body>
-<div class="container">
-
-
-		
-	<div class="fallingSnow">
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-	
-	
-	</div>
-	</div>
-</body>
+    <div class="container">
+        <div class="heart"></div>
+        <div class="message">Anh yêu em!</div>
+        <a href="https://www.example.com" class="button">Nhấn vào đây để biết thêm</a>
+    </div>
+</body>
 </html>
+
+Đoạn mã này tạo ra một trang web với hiệu ứng trái tim đập nhịp nhàng và một thông điệp tỏ tình. Bạn có thể thay đổi thông điệp và liên kết trong thẻ `<a>` theo ý muốn của mình.
