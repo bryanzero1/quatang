@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="icon" type="image/png" href="image/favicon.ico">
 		<title>Tặng Cúc Dễ Thuông</title>	    
@@ -38,14 +38,15 @@
 						<span class="say">Anh rất muốn có cơ hội để tìm hiểu và chia sẻ  </span><br>
 					       <span class="say">những khoảnh khắc tuyệt vời cùng em. </span><br>
 						<span class="say"> </span><br>
-                        <span class="say"><span class="space"></span> -- Anh thích em! --</span>
+                        <span class="say"><span class="space"></span> Anh thích em!</span><br>
+                        <span class="say"><span class="space"></span> --- Quang Tuấn ---</span>
 			  </font></p>
       </div>
 
                 </div>
                 <div id="clock-box">
                     <span class="STYLE1"></span><font color="#FF0000"></font>
-<span class="STYLE1"> Time of love...</span>
+<span class="STYLE1"> Time Of Love...</span>
                   <div id="clock"></div>
               </div>
                 <canvas id="canvas" width="1100" height="680"></canvas>
@@ -54,11 +55,27 @@
         </div>
 
 
-        <audio controls autoplay>
-    <source src="./music/I-Do-911.mp3">
-</audio>
+<audio id="background-music" src="./music/I-Do-911.mp3" preload="auto"></audio>
+
     
     <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+    var music = document.getElementById('background-music');
+    music.play().catch(function(error) {
+        console.log('Tự động phát bị chặn: ' + error);
+        // Nếu tự động phát bị chặn, có thể yêu cầu người dùng nhấp vào một nút để phát nhạc
+        var playButton = document.createElement('button');
+        playButton.innerText = 'Phát nhạc';
+        playButton.addEventListener('click', function () {
+            music.play();
+        });
+        document.body.appendChild(playButton);
+    });
+});
+
+
+
     </script>
 
     <script>
