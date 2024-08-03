@@ -52,32 +52,37 @@
               </div>
                 <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
+
+            <audio id="background-music" src="./music/I-Do-911.mp3" preload="auto"></audio>
+
+
+
             
         </div>
 
 
-<audio id="background-music" src="./music/I-Do-911.mp3" preload="auto"></audio>
 
-    
+
+                        
     <script>
 
-        document.addEventListener('DOMContentLoaded', function () {
-    var music = document.getElementById('background-music');
-    music.play().catch(function(error) {
-        console.log('Tự động phát bị chặn: ' + error);
-        // Nếu tự động phát bị chặn, có thể yêu cầu người dùng nhấp vào một nút để phát nhạc
-        var playButton = document.createElement('button');
-        playButton.innerText = 'Phát nhạc';
-        playButton.addEventListener('click', function () {
-            music.play();
-        });
-        document.body.appendChild(playButton);
-    });
+document.addEventListener('DOMContentLoaded', function () {
+var music = document.getElementById('background-music');
+music.play().catch(function(error) {
+console.log('Tự động phát bị chặn: ' + error);
+// Nếu tự động phát bị chặn, có thể yêu cầu người dùng nhấp vào một nút để phát nhạc
+var playButton = document.createElement('button');
+playButton.innerText = 'Phát Nhạc';
+playButton.addEventListener('click', function () {
+    music.play();
+});
+document.body.appendChild(playButton);
+});
 });
 
 
 
-    </script>
+</script>
 
     <script>
     (function(){
