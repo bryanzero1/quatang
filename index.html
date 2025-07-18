@@ -22,212 +22,209 @@
         </style>
 </head>
     <body>
-	    
-
-		
         <div id="main">
-           
-             <div id="wrap">
+            <div id="wrap">
                 <div id="text">
-			        <div id="code">
-			      <font color="#0000FF"><span class="say">Chào bạn Cúc dễ thuông,</span><br>
-						<span class="say"> </span><br>
-						<span class="say">Em à, ngay từ lần đầu tiên gặp em,</span><br>
-						<span class="say">anh đã biết rằng em chính là </span><br>
-				      		<span class="say">người mà anh đang tìm kiếm.</span><br>
-						<span class="say">Anh rất muốn có cơ hội để tìm hiểu và chia sẻ  </span><br>
-					       <span class="say">những khoảnh khắc tuyệt vời cùng em. </span><br>
-						<span class="say"> </span><br>
-                        <span class="say"><span class="space"></span>-- Anh thích em! --</span><br>
-                        <span class="say"> </span><br>
-                        <span class="say"><span class="space"></span> --- Quang Tuấn ---</span>
-			  </font></p>
-      </div>
-
+                    <div id="code">
+                        <font color="#0000FF">
+                            <span class="say">Chào bạn Cúc dễ thuông,</span><br>
+                            <span class="say"> </span><br>
+                            <span class="say">Em à, ngay từ lần đầu tiên gặp em,</span><br>
+                            <span class="say">anh đã biết rằng em chính là </span><br>
+                            <span class="say">người mà anh đang tìm kiếm.</span><br>
+                            <span class="say">Anh rất muốn có cơ hội để tìm hiểu và chia sẻ  </span><br>
+                            <span class="say">những khoảnh khắc tuyệt vời cùng em. </span><br>
+                            <span class="say"> </span><br>
+                            <span class="say"><span class="space"></span>-- Anh thích em! --</span><br>
+                            <span class="say"> </span><br>
+                            <span class="say"><span class="space"></span> --- Quang Tuấn ---</span>
+                        </font>
+                    </div>
                 </div>
+                
                 <div id="clock-box">
-                    <span class="STYLE1"></span><font color="#FF0000"></font>
-<span class="STYLE1"> Time Of Love...</span>
-                  <div id="clock"></div>
-              </div>
+                    <span class="STYLE1"></span>
+                    <font color="#FF0000"></font>
+                    <span class="STYLE1"> Time Of Love...</span>
+                    <div id="clock"></div>
+                </div>
+                
                 <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
 
             <audio id="background-music" src="./music/I-Do-911.mp3" preload="auto"></audio>
-
-
-
-            
         </div>
 
 
     <script>
-    (function(){
-        var canvas = $('#canvas');
-		
-        if (!canvas[0].getContext) {
-            $("#error").show();
-            return false;        }
-
-        var width = canvas.width();
-        var height = canvas.height();        
-        canvas.attr("width", width);
-        canvas.attr("height", height);
-        var opts = {
-            seed: {
-                x: width / 2 - 20,
-                color: "rgb(190, 26, 37)",
-                scale: 2
-            },
-            branch: [
-                [535, 680, 570, 250, 500, 200, 30, 100, [
-                    [540, 500, 455, 417, 340, 400, 13, 100, [
-                        [450, 435, 434, 430, 394, 395, 2, 40]
-                    ]],
-                    [550, 445, 600, 356, 680, 345, 12, 100, [
-                        [578, 400, 648, 409, 661, 426, 3, 80]
-                    ]],
-                    [539, 281, 537, 248, 534, 217, 3, 40],
-                    [546, 397, 413, 247, 328, 244, 9, 80, [
-                        [427, 286, 383, 253, 371, 205, 2, 40],
-                        [498, 345, 435, 315, 395, 330, 4, 60]
-                    ]],
-                    [546, 357, 608, 252, 678, 221, 6, 100, [
-                        [590, 293, 646, 277, 648, 271, 2, 80]
-                    ]]
-                ]] 
-            ],
-            bloom: {
-                num: 700,
-                width: 1080,
-                height: 650,
-            },
-            footer: {
-                width: 1200,
-                height: 5,
-                speed: 10,
+        (function(){
+            var canvas = $('#canvas');
+            
+            if (!canvas[0].getContext) {
+                $("#error").show();
+                return false;
             }
-        }
 
-        var tree = new Tree(canvas[0], width, height, opts);
-        var seed = tree.seed;
-        var foot = tree.footer;
-        var hold = 1;
+            var width = canvas.width();
+            var height = canvas.height();        
+            canvas.attr("width", width);
+            canvas.attr("height", height);
+            
+            var opts = {
+                seed: {
+                    x: width / 2 - 20,
+                    color: "rgb(190, 26, 37)",
+                    scale: 2
+                },
+                branch: [
+                    [535, 680, 570, 250, 500, 200, 30, 100, [
+                        [540, 500, 455, 417, 340, 400, 13, 100, [
+                            [450, 435, 434, 430, 394, 395, 2, 40]
+                        ]],
+                        [550, 445, 600, 356, 680, 345, 12, 100, [
+                            [578, 400, 648, 409, 661, 426, 3, 80]
+                        ]],
+                        [539, 281, 537, 248, 534, 217, 3, 40],
+                        [546, 397, 413, 247, 328, 244, 9, 80, [
+                            [427, 286, 383, 253, 371, 205, 2, 40],
+                            [498, 345, 435, 315, 395, 330, 4, 60]
+                        ]],
+                        [546, 357, 608, 252, 678, 221, 6, 100, [
+                            [590, 293, 646, 277, 648, 271, 2, 80]
+                        ]]
+                    ]] 
+                ],
+                bloom: {
+                    num: 700,
+                    width: 1080,
+                    height: 650,
+                },
+                footer: {
+                    width: 1200,
+                    height: 5,
+                    speed: 10,
+                }
+            };
 
-canvas.click(function(e) {
-    var offset = canvas.offset();
-    var x = e.pageX - offset.left;
-    var y = e.pageY - offset.top;
+            var tree = new Tree(canvas[0], width, height, opts);
+            var seed = tree.seed;
+            var foot = tree.footer;
+            var hold = 1;
 
-    if (seed.hover(x, y)) {
-        hold = 0;
-        canvas.unbind("click");
-        canvas.unbind("mousemove");
-        canvas.removeClass('hand');
-        // Phát nhạc khi click vào trái tim
-       //// document.getElementById('background-music').play();
-    }
-});
+            canvas.click(function(e) {
+                var offset = canvas.offset();
+                var x = e.pageX - offset.left;
+                var y = e.pageY - offset.top;
 
+                if (seed.hover(x, y)) {
+                    hold = 0;
+                    canvas.unbind("click");
+                    canvas.unbind("mousemove");
+                    canvas.removeClass('hand');
+                    // Phát nhạc khi click vào trái tim
+                    try {
+                        document.getElementById('background-music').play();
+                    } catch(e) {
+                        console.log("Không thể phát nhạc:", e);
+                    }
+                }
+            }).mousemove(function(e){
+                var offset = canvas.offset(), x, y;
+                x = e.pageX - offset.left;
+                y = e.pageY - offset.top;
+                canvas.toggleClass('hand', seed.hover(x, y));
+            });
 
-        }).mousemove(function(e){
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            canvas.toggleClass('hand', seed.hover(x, y));
-        });
+            var seedAnimate = eval(Jscex.compile("async", function () {
+                seed.draw();
+                while (hold) {
+                    $await(Jscex.Async.sleep(10));
+                }
+                while (seed.canScale()) {
+                    seed.scale(0.95);
+                    $await(Jscex.Async.sleep(10));
+                }
+                while (seed.canMove()) {
+                    seed.move(0, 2);
+                    foot.draw();
+                    $await(Jscex.Async.sleep(10));
+                }
+            }));
 
-        var seedAnimate = eval(Jscex.compile("async", function () {
-            seed.draw();
-            while (hold) {
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canScale()) {
-                seed.scale(0.95);
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canMove()) {
-                seed.move(0, 2);
+            var growAnimate = eval(Jscex.compile("async", function () {
+                do {
+                    tree.grow();
+                    $await(Jscex.Async.sleep(10));
+                } while (tree.canGrow());
+            }));
+
+            var flowAnimate = eval(Jscex.compile("async", function () {
+                do {
+                    tree.flower(2);
+                    $await(Jscex.Async.sleep(10));
+                } while (tree.canFlower());
+            }));
+
+            var moveAnimate = eval(Jscex.compile("async", function () {
+                tree.snapshot("p1", 240, 0, 610, 680);
+                while (tree.move("p1", 500, 0)) {
+                    foot.draw();
+                    $await(Jscex.Async.sleep(10));
+                }
                 foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-        }));
+                tree.snapshot("p2", 500, 0, 610, 680);
 
-        var growAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.grow();
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canGrow());
-        }));
+                canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+                canvas.css("background", "#ffe");
+                $await(Jscex.Async.sleep(300));
+                canvas.css("background", "none");
+            }));
 
-        var flowAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.flower(2);
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canFlower());
-        }));
+            var jumpAnimate = eval(Jscex.compile("async", function () {
+                var ctx = tree.ctx;
+                while (true) {
+                    tree.ctx.clearRect(0, 0, width, height);
+                    tree.jump();
+                    foot.draw();
+                    $await(Jscex.Async.sleep(25));
+                }
+            }));
 
-        var moveAnimate = eval(Jscex.compile("async", function () {
-            tree.snapshot("p1", 240, 0, 610, 680);
-            while (tree.move("p1", 500, 0)) {
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-            foot.draw();
-            tree.snapshot("p2", 500, 0, 610, 680);
+            var textAnimate = eval(Jscex.compile("async", function () {
+                var together = new Date();
+                together.setFullYear(2024, 6, 26); 			
+                together.setHours(0);							
+                together.setMinutes(0);				
+                together.setSeconds(0);					
+                together.setMilliseconds(0);			
 
-            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
-            canvas.css("background", "none");
-        }));
+                $("#code").show().typewriter();
+                $("#clock-box").fadeIn(500);
+                while (true) {
+                    timeElapse(together);
+                    $await(Jscex.Async.sleep(1000));
+                }
+            }));
 
-        var jumpAnimate = eval(Jscex.compile("async", function () {
-            var ctx = tree.ctx;
-            while (true) {
-                tree.ctx.clearRect(0, 0, width, height);
-                tree.jump();
-                foot.draw();
-                $await(Jscex.Async.sleep(25));
-            }
-        }));
+            var runAsync = eval(Jscex.compile("async", function () {
+                $await(seedAnimate());
+                $await(growAnimate());
+                $await(flowAnimate());
+                $await(moveAnimate());
 
-        var textAnimate = eval(Jscex.compile("async", function () {
-		    var together = new Date();
-		    together.setFullYear(2024,6 , 26); 			
-		    together.setHours(0);							
-		    together.setMinutes(0);				
-		    together.setSeconds(0);					
-		    together.setMilliseconds(0);			
+                textAnimate().start();
 
-		    $("#code").show().typewriter();
-            $("#clock-box").fadeIn(500);
-            while (true) {
-                timeElapse(together);
-                $await(Jscex.Async.sleep(1000));
-            }
-        }));
+                $await(jumpAnimate());
+            }));
 
-        var runAsync = eval(Jscex.compile("async", function () {
-            $await(seedAnimate());
-            $await(growAnimate());
-            $await(flowAnimate());
-            $await(moveAnimate());
-
-            textAnimate().start();
-
-            $await(jumpAnimate());
-        }));
-
-        runAsync().start();
-    })();
+            runAsync().start();
+        })();
     </script>
 
-	     <script type="text/javascript">
-var YWPParams =
-{
-autoplay: true
-};
-</script>
+    <script type="text/javascript">
+        var YWPParams = {
+            autoplay: true
+        };
+    </script>
 </body>
 </html>
