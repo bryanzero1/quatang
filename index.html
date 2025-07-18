@@ -61,29 +61,6 @@
         </div>
 
 
-
-
-                        
-    <script>
-
-document.addEventListener('DOMContentLoaded', function () {
-var music = document.getElementById('background-music');
-music.play().catch(function(error) {
-console.log('Tự động phát bị chặn: ' + error);
-// Nếu tự động phát bị chặn, có thể yêu cầu người dùng nhấp vào một nút để phát nhạc
-var playButton = document.createElement('button');
-playButton.innerText = 'Phát Nhạc';
-playButton.addEventListener('click', function () {
-    music.play();
-});
-document.body.appendChild(playButton);
-});
-});
-
-
-
-</script>
-
     <script>
     (function(){
         var canvas = $('#canvas');
@@ -137,16 +114,22 @@ document.body.appendChild(playButton);
         var foot = tree.footer;
         var hold = 1;
 
-        canvas.click(function(e) {
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
-                hold = 0; 
-                canvas.unbind("click");
-                canvas.unbind("mousemove");
-                canvas.removeClass('hand');
-            }
+canvas.click(function(e) {
+    var offset = canvas.offset();
+    var x = e.pageX - offset.left;
+    var y = e.pageY - offset.top;
+
+    if (seed.hover(x, y)) {
+        hold = 0;
+        canvas.unbind("click");
+        canvas.unbind("mousemove");
+        canvas.removeClass('hand');
+        // Phát nhạc khi click vào trái tim
+        document.getElementById('background-music').play();
+    }
+});
+
+
         }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
