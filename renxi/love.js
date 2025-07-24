@@ -53,16 +53,27 @@
     }
 
     Heart = function() {
-        // x = 16 sin^3 t
-        // y = 13 cos t - 5 cos 2t - 2 cos 3t - cos 4t
-        // http://www.wolframalpha.com/input/?i=x+%3D+16+sin%5E3+t%2C+y+%3D+(13+cos+t+-+5+cos+2t+-+2+cos+3t+-+cos+4t)
+        // Enhanced cute heart shape with multiple curves
+        // Using parametric equations for a more adorable heart
         var points = [], x, y, t;
-        for (var i = 10; i < 30; i += 0.2) {
-            t = i / Math.PI;
-            x = 16 * Math.pow(Math.sin(t), 3);
-            y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+        
+        // First curve - main heart body (more rounded and cute)
+        for (var i = 0; i < 62.8; i += 0.15) {
+            t = i / 10;
+            // Modified heart equation for cuter shape
+            x = 16 * Math.pow(Math.sin(t), 3) * 1.2;
+            y = (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * 1.1;
             points.push(new Point(x, y));
         }
+        
+        // Add extra points for smoother, rounder curves
+        for (var i = 0; i < 31.4; i += 0.1) {
+            t = i / 5;
+            x = 14 * Math.pow(Math.sin(t), 3) * 1.3;
+            y = (12 * Math.cos(t) - 4 * Math.cos(2 * t) - 1.5 * Math.cos(3 * t) - 0.5 * Math.cos(4 * t)) * 1.2;
+            points.push(new Point(x * 0.9, y * 0.9));
+        }
+        
         this.points = points;
         this.length = points.length;
     }
@@ -91,41 +102,71 @@
             color  : color,
             radius : 5,
         }
+        
+        this.hidden = false; // Add hidden state
     }
     Seed.prototype = {
         draw: function() {
-            this.drawHeart();
-            this.drawText();
+            // Only draw if not hidden and scale is significant
+            if (!this.hidden && this.heart.scale > 0.01) {
+                this.drawHeart();
+                this.drawText();
+            }
         },
         addPosition: function(x, y) {
             this.cirle.point = this.cirle.point.add(new Point(x, y));
         },
         canMove: function() {
-            return this.cirle.point.y < (this.tree.height + 20); 
+            return !this.hidden && this.cirle.point.y < (this.tree.height + 20); 
         },
         move: function(x, y) {
             this.clear();
-            this.drawCirle();
+            if (!this.hidden) {
+                this.drawCirle();
+            }
             this.addPosition(x, y);
         },
         canScale: function() {
-            return this.heart.scale > 0.2;
+            return !this.hidden && this.heart.scale > 0.01; // Allow scaling down to nearly 0
         },
         setHeartScale: function(scale) {
             this.heart.scale *= scale;
         },
         scale: function(scale) {
             this.clear();
-            this.drawCirle();
-            this.drawHeart();
+            if (!this.hidden) {
+                this.drawCirle();
+                this.drawHeart();
+            }
             this.setHeartScale(scale);
         },
         drawHeart: function() {
             var ctx = this.tree.ctx, heart = this.heart;
             var point = heart.point, color = heart.color, 
                 scale = heart.scale;
+            
+            // Don't draw if hidden or scale is too small
+            if (this.hidden || scale <= 0.01) return;
+                
             ctx.save();
-            ctx.fillStyle = color;
+            
+            // Create gradient for cute heart
+            var gradient = ctx.createRadialGradient(0, -10, 5, 0, 0, 40);
+            gradient.addColorStop(0, '#ff69b4');
+            gradient.addColorStop(0.3, '#ff1493');
+            gradient.addColorStop(0.7, '#ffc0cb');
+            gradient.addColorStop(1, '#ff69b4');
+            
+            ctx.fillStyle = gradient;
+            ctx.strokeStyle = '#ff1493';
+            ctx.lineWidth = 2;
+            
+            // Add shadow for depth
+            ctx.shadowColor = 'rgba(255, 105, 180, 0.6)';
+            ctx.shadowBlur = 15;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 5;
+            
             ctx.translate(point.x, point.y);
             ctx.beginPath();
             ctx.moveTo(0, 0);
@@ -135,6 +176,20 @@
             }
             ctx.closePath();
             ctx.fill();
+            ctx.stroke();
+            
+            // Add cute shine effect
+            ctx.shadowColor = 'transparent';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.beginPath();
+            ctx.ellipse(-8, -15, 4, 7, -0.3, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.beginPath();
+            ctx.ellipse(5, -12, 3, 5, 0.2, 0, 2 * Math.PI);
+            ctx.fill();
+            
             ctx.restore();
         },
         drawCirle: function() {
@@ -156,29 +211,93 @@
             var ctx = this.tree.ctx, heart = this.heart;
             var point = heart.point, color = heart.color, 
                 scale = heart.scale;
+            
+            // Don't draw text if hidden or scale is too small
+            if (this.hidden || scale <= 0.01) return;
+                
             ctx.save();
-            ctx.strokeStyle = color;
-            ctx.fillStyle = color;
+            
+            // Create gradient for text
+            var textGradient = ctx.createLinearGradient(0, 0, 100, 0);
+            textGradient.addColorStop(0, '#ff1493');
+            textGradient.addColorStop(0.5, '#ff69b4');
+            textGradient.addColorStop(1, '#ffc0cb');
+            
+            ctx.strokeStyle = textGradient;
+            ctx.fillStyle = textGradient;
+            ctx.lineWidth = 2;
+            
+            // Add glow effect for text
+            ctx.shadowColor = 'rgba(255, 105, 180, 0.8)';
+            ctx.shadowBlur = 10;
+            
             ctx.translate(point.x, point.y);
             ctx.scale(scale, scale);
+            
+            // Draw cute arrow with curved line
+            ctx.beginPath();
             ctx.moveTo(0, 0);
-    	    ctx.lineTo(15, 15);
-    	    ctx.lineTo(60, 15);
+            ctx.quadraticCurveTo(8, 8, 15, 15);
+            ctx.lineTo(60, 15);
             ctx.stroke();
+            
+            // Add arrow head with cute style
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(8, -3);
+            ctx.lineTo(8, 3);
+            ctx.closePath();
+            ctx.fill();
 
             ctx.moveTo(0, 0);
-            ctx.scale(0.75, 0.75);
-            ctx.font = "12px 微软雅黑,Verdana";
-            ctx.fillText("Come Baby", 23, 10);
+            ctx.scale(0.8, 0.8);
+            ctx.font = "bold 14px 'Dancing Script', 'Microsoft YaHei', sans-serif";
+            ctx.fillText("💕 Click Me 💕", 25, 12);
+            
+            // Add cute sparkle effects around text - positioned to not overlap
+            ctx.font = "10px Arial";
+            ctx.fillText("✨", 15, 2);  // Moved left and up
+            ctx.fillText("✨", 75, 8);  // Moved right
+            ctx.fillText("⭐", 45, -8); // Moved right and up more to avoid overlap
+            
             ctx.restore();
         },
         clear: function() {
-            var ctx = this.tree.ctx, cirle = this.cirle;
-            var point = cirle.point, scale = cirle.scale, radius = 26;
-            var w = h = (radius * scale);
-            ctx.clearRect(point.x - w, point.y - h, 4 * w, 4 * h);
+            var ctx = this.tree.ctx, heart = this.heart, cirle = this.cirle;
+            var point = heart.point, scale = heart.scale;
+            // Clear much larger area to completely remove heart, text, emojis and all effects
+            var clearRadius = this.hidden ? 200 : 80 * scale; // Even larger when hidden
+            var w = h = clearRadius;
+            ctx.clearRect(point.x - w, point.y - w, 2 * w, 2 * w);
+            
+            // Additional clear for text area (since text might extend beyond heart area)
+            if (this.hidden) {
+                ctx.clearRect(point.x - 100, point.y - 50, 200, 100);
+            }
+        },
+        hide: function() {
+            // Completely hide the heart by setting scale to 0 and clearing multiple times
+            this.hidden = true;
+            this.heart.scale = 0;
+            this.cirle.scale = 0;
+            
+            // Clear multiple times with different areas to ensure complete removal
+            this.clear();
+            
+            // Additional aggressive clearing
+            var ctx = this.tree.ctx, heart = this.heart;
+            var point = heart.point;
+            ctx.clearRect(point.x - 200, point.y - 100, 400, 200);
+            
+            // Force a redraw of the area to ensure nothing remains
+            setTimeout(() => {
+                ctx.clearRect(point.x - 200, point.y - 100, 400, 200);
+            }, 10);
         },
         hover: function(x, y) {
+            // Don't allow hover if hidden
+            if (this.hidden) return false;
+            
             var ctx = this.tree.ctx;
             var pixel = ctx.getImageData(x, y, 1, 1);
             return pixel.data[3] == 255
