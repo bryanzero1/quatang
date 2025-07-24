@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="icon" type="image/png" href="image/favicon.ico">
-		<title>Tặng Cúc Dễ Thuông</title>	    
+		<title>💝Tặng Vợ Cúc Dễ Thuông💝</title>	    
         <link type="text/css" rel="stylesheet" href="./renxi/default.css">
 		<script type="text/javascript" src="./renxi/jquery.min.js"></script>
 		<script type="text/javascript" src="./renxi/jscex.min.js"></script>
@@ -18,30 +18,1292 @@
 	    <style type="text/css">
 <!--
 .STYLE1 {color: #666666}
+
+/* Background gradient lãng mạn - tĩnh và nhẹ nhàng */
+body {
+    /* background: linear-gradient(135deg, #ffeef0 0%, #ffe4e6 25%, #ffd6d9 50%, #ffc8cc 75%, #ffb3ba 100%) !important; */
+    background: linear-gradient(135deg, #ffeef0 0%, #ffe4e6 25%, #ffd6d9 50%, #ffc8cc 75%, #ffb3ba 100%) !important;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffeef0 0%, #ffe4e6 25%, #ffd6d9 50%, #ffc8cc 75%, #ffb3ba 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease-out;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-heart {
+    font-size: 80px;
+    color: #ff1493;
+    animation: heartPulse 1.5s ease-in-out infinite;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Cute Animated Heart */
+.heart-svg {
+    width: 120px;
+    height: 120px;
+    animation: cuteHeartDance 2s ease-in-out infinite;
+    filter: drop-shadow(0 8px 25px rgba(255, 105, 180, 0.6));
+    transform-origin: center;
+}
+
+@keyframes cuteHeartDance {
+    0% { 
+        transform: scale(1) rotate(0deg) translateY(0px);
+        filter: drop-shadow(0 4px 15px rgba(255, 105, 180, 0.4)) hue-rotate(0deg);
+    }
+    15% { 
+        transform: scale(1.1) rotate(-5deg) translateY(-3px);
+        filter: drop-shadow(0 8px 20px rgba(255, 105, 180, 0.6)) hue-rotate(10deg);
+    }
+    30% { 
+        transform: scale(1.2) rotate(3deg) translateY(-5px);
+        filter: drop-shadow(0 12px 30px rgba(255, 105, 180, 0.8)) hue-rotate(20deg);
+    }
+    45% { 
+        transform: scale(1.15) rotate(-2deg) translateY(-3px);
+        filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.7)) hue-rotate(15deg);
+    }
+    60% { 
+        transform: scale(1.3) rotate(4deg) translateY(-7px);
+        filter: drop-shadow(0 15px 35px rgba(255, 105, 180, 0.9)) hue-rotate(25deg);
+    }
+    75% { 
+        transform: scale(1.1) rotate(-3deg) translateY(-2px);
+        filter: drop-shadow(0 8px 20px rgba(255, 105, 180, 0.6)) hue-rotate(10deg);
+    }
+    100% { 
+        transform: scale(1) rotate(0deg) translateY(0px);
+        filter: drop-shadow(0 4px 15px rgba(255, 105, 180, 0.4)) hue-rotate(0deg);
+    }
+}
+
+/* Cute floating particles around heart */
+.heart-container {
+    position: relative;
+    display: inline-block;
+    animation: containerFloat 3s ease-in-out infinite;
+}
+
+@keyframes containerFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(45deg, #ff69b4, #ffc0cb, #ff1493);
+    border-radius: 50%;
+    animation: cuteSparkle 2.5s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+}
+
+.sparkle:nth-child(2) { 
+    top: 15px; left: -15px; 
+    animation-delay: 0.2s; 
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+}
+.sparkle:nth-child(3) { 
+    top: -10px; right: -20px; 
+    animation-delay: 0.4s;
+    width: 8px; height: 8px;
+    background: linear-gradient(45deg, #ffc0cb, #ff69b4);
+}
+.sparkle:nth-child(4) { 
+    bottom: 20px; left: 10px; 
+    animation-delay: 0.6s;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+}
+.sparkle:nth-child(5) { 
+    bottom: -5px; right: 15px; 
+    animation-delay: 0.8s;
+    width: 5px; height: 5px;
+    background: linear-gradient(45deg, #ff1493, #ffc0cb);
+}
+.sparkle:nth-child(6) { 
+    top: 30px; right: -10px; 
+    animation-delay: 1s;
+    background: linear-gradient(45deg, #ffc0cb, #ff1493);
+}
+.sparkle:nth-child(7) { 
+    top: -15px; left: 20px; 
+    animation-delay: 1.2s;
+    width: 7px; height: 7px;
+    background: linear-gradient(45deg, #ff69b4, #ffc0cb);
+}
+.sparkle:nth-child(8) { 
+    bottom: 25px; right: -5px; 
+    animation-delay: 1.4s;
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+}
+
+@keyframes cuteSparkle {
+    0%, 100% { 
+        opacity: 0; 
+        transform: scale(0) rotate(0deg) translateY(0px);
+    }
+    25% { 
+        opacity: 0.7; 
+        transform: scale(1.2) rotate(90deg) translateY(-5px);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.8) rotate(180deg) translateY(-10px);
+    }
+    75% { 
+        opacity: 0.8; 
+        transform: scale(1.5) rotate(270deg) translateY(-5px);
+    }
+}
+
+/* Responsive loading screen */
+@media (max-width: 768px) {
+    .loading-heart {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+    
+    .heart-svg {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .loading-text {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .loading-progress {
+        width: 250px;
+        margin-bottom: 15px;
+    }
+    
+    .loading-subtitle {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+    
+    .sparkle {
+        width: 4px !important;
+        height: 4px !important;
+    }
+    
+    .heart-container {
+        transform: scale(0.8);
+    }
+}
+
+.loading-text {
+    font-size: 24px;
+    color: #ff1493;
+    font-family: 'Dancing Script', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: textFade 2s ease-in-out infinite;
+}
+
+@keyframes textFade {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.loading-progress {
+    width: 300px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.loading-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff69b4, #ff1493, #ffc0cb);
+    border-radius: 3px;
+    width: 0%;
+    animation: loadingBar 3s ease-out forwards;
+}
+
+@keyframes loadingBar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.loading-subtitle {
+    font-size: 16px;
+    color: #ff69b4;
+    font-family: 'Dancing Script', sans-serif;
+    opacity: 0.8;
+    animation: subtitleBlink 1.8s ease-in-out infinite;
+}
+
+@keyframes subtitleBlink {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+
+/* Hide main content during loading */
+#main.loading {
+    display: none;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    body {
+        background: linear-gradient(180deg, #ffeef0 0%, #ffe4e6 50%, #ffd6d9 100%) !important;
+        background-attachment: scroll;
+    }
+    
+    #wrap {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    
+    #code {
+        max-height: 300px;
+        padding: 15px;
+        margin: 10px 0;
+    }
+}
+
+/* CSS cho scroll và hiệu ứng hiển thị từ từ */
+#code {
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: #ff69b4 rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+}
+
+/* Custom scrollbar cho webkit browsers */
+#code::-webkit-scrollbar {
+    width: 6px;
+}
+
+#code::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+#code::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff69b4, #ff1493, #ffc0cb);
+    border-radius: 10px;
+}
+
+#code::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff1493, #dc143c, #ff69b4);
+}
+
+.say {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: gentleAppear 2.2s ease-out forwards;
+    display: inline-block;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(255, 105, 180, 0.2);
+}
+
+@keyframes gentleAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive animation cho mobile */
+@media (max-width: 768px) {
+    .say {
+        animation: mobileAppear 1.8s ease-out forwards;
+        text-shadow: none;
+    }
+    
+    @keyframes mobileAppear {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Delay cho mobile cũng rõ ràng nhưng nhanh hơn */
+    .say:nth-child(1) { animation-delay: 0.3s; }
+    .say:nth-child(3) { animation-delay: 0.7s; }
+    .say:nth-child(5) { animation-delay: 1.1s; }
+    .say:nth-child(7) { animation-delay: 1.5s; }
+    .say:nth-child(9) { animation-delay: 1.9s; }
+    .say:nth-child(11) { animation-delay: 2.3s; }
+    .say:nth-child(13) { animation-delay: 2.7s; }
+    .say:nth-child(15) { animation-delay: 3.1s; }
+    .say:nth-child(17) { animation-delay: 3.5s; }
+    .say:nth-child(19) { animation-delay: 3.9s; }
+    .say:nth-child(21) { animation-delay: 4.3s; }
+    .say:nth-child(23) { animation-delay: 4.7s; }
+    .say:nth-child(25) { animation-delay: 5.1s; }
+    .say:nth-child(27) { animation-delay: 5.5s; }
+    .say:nth-child(29) { animation-delay: 5.9s; }
+    .say:nth-child(31) { animation-delay: 6.3s; }
+    
+    .say:last-child {
+        animation-delay: 6.7s;
+    }
+}
+
+/* Tạo độ trễ để hiện từng dòng rõ ràng */
+.say:nth-child(1) { animation-delay: 0.5s; }
+.say:nth-child(3) { animation-delay: 1.0s; }
+.say:nth-child(5) { animation-delay: 1.5s; }
+.say:nth-child(7) { animation-delay: 2.0s; }
+.say:nth-child(9) { animation-delay: 2.5s; }
+.say:nth-child(11) { animation-delay: 3.0s; }
+.say:nth-child(13) { animation-delay: 3.5s; }
+.say:nth-child(15) { animation-delay: 4.0s; }
+.say:nth-child(17) { animation-delay: 4.5s; }
+.say:nth-child(19) { animation-delay: 5.0s; }
+.say:nth-child(21) { animation-delay: 5.5s; }
+.say:nth-child(23) { animation-delay: 6.0s; }
+.say:nth-child(25) { animation-delay: 6.5s; }
+.say:nth-child(27) { animation-delay: 7.0s; }
+.say:nth-child(29) { animation-delay: 7.5s; }
+.say:nth-child(31) { animation-delay: 8.0s; }
+
+/* Hiệu ứng đặc biệt cho chữ ký */
+.say:last-child {
+    animation-delay: 8.5s;
+    animation-duration: 2.5s;
+    transform-origin: center;
+}
+
+/* Hiệu ứng hover cho các dòng text */
+.say:hover {
+    transform: scale(1.05);
+    text-shadow: 0 4px 8px rgba(255, 105, 180, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng cho clock-box */
+#clock-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+    animation: heartBeat 2s ease-in-out infinite;
+    border: 2px solid rgba(255, 105, 180, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Hiệu ứng heartbeat dễ thương cho clock */
+@keyframes heartBeat {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+    }
+    50% { 
+        transform: scale(1.03);
+        box-shadow: 0 6px 25px rgba(255, 105, 180, 0.5);
+    }
+    100% { 
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+    }
+}
+
+/* Hiệu ứng cho các số đồng hồ */
+#clock .digit {
+    color: #ff1493;
+    text-shadow: 0 2px 4px rgba(255, 20, 147, 0.4);
+    animation: digitBounce 3s ease-in-out infinite;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng bounce dễ thương cho từng số */
+@keyframes digitBounce {
+    0%, 100% { 
+        transform: translateY(0) scale(1);
+    }
+    25% { 
+        transform: translateY(-3px) scale(1.05);
+    }
+    50% { 
+        transform: translateY(0) scale(1);
+    }
+    75% { 
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+/* Tạo delay khác nhau cho từng số để tạo hiệu ứng wave */
+#clock .digit:nth-child(1) { animation-delay: 0s; }
+#clock .digit:nth-child(2) { animation-delay: 0.2s; }
+#clock .digit:nth-child(3) { animation-delay: 0.4s; }
+#clock .digit:nth-child(4) { animation-delay: 0.6s; }
+
+/* Hiệu ứng hover cho clock-box */
+#clock-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 105, 180, 0.6);
+    transition: all 0.3s ease;
+}
+
+/* Text "Time Of Love..." cũng có hiệu ứng dễ thương */
+#clock-box .STYLE1 {
+    animation: textGlow 2.5s ease-in-out infinite alternate;
+    font-weight: 500;
+}
+
+@keyframes textGlow {
+    0% { 
+        color: #999;
+        text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+    }
+    100% { 
+        color: #666;
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+    }
+}
+
+/* Responsive clock cho mobile */
+@media (max-width: 768px) {
+    #clock-box {
+        padding: 15px 20px;
+        animation: mobileHeartBeat 2.5s ease-in-out infinite;
+        backdrop-filter: blur(2px);
+    }
+    
+    @keyframes mobileHeartBeat {
+        0%, 100% { 
+            transform: scale(1);
+        }
+        50% { 
+            transform: scale(1.02);
+        }
+    }
+    
+    #clock .digit {
+        font-size: 48px !important;
+        animation: mobileDigitFloat 2.5s ease-in-out infinite;
+    }
+    
+    @keyframes mobileDigitFloat {
+        0%, 100% { 
+            transform: translateY(0);
+        }
+        50% { 
+            transform: translateY(-2px);
+        }
+    }
+    
+    /* Giảm hiệu ứng text glow trên mobile */
+    #clock-box .STYLE1 {
+        animation: mobileTextGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes mobileTextGlow {
+        0% { 
+            color: #777;
+            text-shadow: 0 0 3px rgba(255, 105, 180, 0.2);
+        }
+        100% { 
+            color: #555;
+            text-shadow: 0 0 6px rgba(255, 105, 180, 0.4);
+        }
+    }
+}
+
+/* Hiệu ứng riêng cho từng loại thời gian */
+.days-digit {
+    color: #ff1493 !important;
+    animation: daysPulse 4s ease-in-out infinite !important;
+}
+
+.hours-digit {
+    color: #ff69b4 !important;
+    animation: hoursWave 3.5s ease-in-out infinite !important;
+}
+
+.minutes-digit {
+    color: #ffc0cb !important;
+    animation: minutesFloat 3s ease-in-out infinite !important;
+}
+
+.seconds-digit {
+    color: #ff1493 !important;
+    animation: secondsTick 1s ease-in-out infinite !important;
+    font-weight: bold !important;
+}
+
+/* Animation cho từng loại */
+@keyframes daysPulse {
+    0%, 100% { 
+        transform: scale(1) rotateY(0deg);
+        text-shadow: 0 2px 4px rgba(255, 20, 147, 0.4);
+    }
+    50% { 
+        transform: scale(1.1) rotateY(10deg);
+        text-shadow: 0 4px 8px rgba(255, 20, 147, 0.8);
+    }
+}
+
+@keyframes hoursWave {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg);
+    }
+    25% { 
+        transform: translateY(-4px) rotate(2deg);
+    }
+    75% { 
+        transform: translateY(-2px) rotate(-2deg);
+    }
+}
+
+@keyframes minutesFloat {
+    0%, 100% { 
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+    50% { 
+        transform: translateY(-5px) scale(1.05);
+        opacity: 1;
+    }
+}
+
+@keyframes secondsTick {
+    0% { 
+        transform: scale(1);
+        text-shadow: 0 2px 4px rgba(255, 20, 147, 0.4);
+    }
+    50% { 
+        transform: scale(1.15);
+        text-shadow: 0 4px 8px rgba(255, 20, 147, 0.8);
+    }
+    100% { 
+        transform: scale(1);
+        text-shadow: 0 2px 4px rgba(255, 20, 147, 0.4);
+    }
+}
+
+/* Điều chỉnh vị trí canvas để không bị che */
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#wrap {
+    position: relative;
+}
+
+#text {
+    position: relative;
+    z-index: 10;
+}
+
+#clock-box {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+/* Flying Emojis Animation */
+.floating-emojis {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-emoji {
+    position: absolute;
+    font-size: 20px;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+/* Different floating animations */
+@keyframes floatUp1 {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatUp2 {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(-100px) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatUp3 {
+    0% {
+        transform: translateY(100vh) translateX(0px) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) translateX(50px) scale(1) rotate(180deg);
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(-50px) scale(0.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatZigzag {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(75vh) translateX(100px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(50vh) translateX(-50px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(25vh) translateX(150px) rotate(270deg);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(0px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatWave {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        transform: translateY(80vh) translateX(30px) rotate(72deg);
+    }
+    40% {
+        transform: translateY(60vh) translateX(-30px) rotate(144deg);
+    }
+    60% {
+        transform: translateY(40vh) translateX(60px) rotate(216deg);
+    }
+    80% {
+        transform: translateY(20vh) translateX(-20px) rotate(288deg);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(0px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Assign different animations to emojis */
+.floating-emoji:nth-child(1) {
+    animation: floatUp1 8s infinite;
+    animation-delay: 0s;
+    left: 10%;
+}
+
+.floating-emoji:nth-child(2) {
+    animation: floatUp2 10s infinite;
+    animation-delay: 2s;
+    left: 20%;
+}
+
+.floating-emoji:nth-child(3) {
+    animation: floatUp3 12s infinite;
+    animation-delay: 4s;
+    left: 30%;
+}
+
+.floating-emoji:nth-child(4) {
+    animation: floatZigzag 9s infinite;
+    animation-delay: 1s;
+    left: 40%;
+}
+
+.floating-emoji:nth-child(5) {
+    animation: floatWave 11s infinite;
+    animation-delay: 3s;
+    left: 50%;
+}
+
+.floating-emoji:nth-child(6) {
+    animation: floatUp1 7s infinite;
+    animation-delay: 5s;
+    left: 60%;
+}
+
+.floating-emoji:nth-child(7) {
+    animation: floatUp2 13s infinite;
+    animation-delay: 1.5s;
+    left: 70%;
+}
+
+.floating-emoji:nth-child(8) {
+    animation: floatUp3 9s infinite;
+    animation-delay: 6s;
+    left: 80%;
+}
+
+.floating-emoji:nth-child(9) {
+    animation: floatZigzag 10s infinite;
+    animation-delay: 2.5s;
+    left: 90%;
+}
+
+.floating-emoji:nth-child(10) {
+    animation: floatWave 8s infinite;
+    animation-delay: 4.5s;
+    left: 15%;
+}
+
+.floating-emoji:nth-child(11) {
+    animation: floatUp1 11s infinite;
+    animation-delay: 7s;
+    left: 25%;
+}
+
+.floating-emoji:nth-child(12) {
+    animation: floatUp2 9s infinite;
+    animation-delay: 3.5s;
+    left: 35%;
+}
+
+.floating-emoji:nth-child(13) {
+    animation: floatUp3 10s infinite;
+    animation-delay: 1.2s;
+    left: 45%;
+}
+
+.floating-emoji:nth-child(14) {
+    animation: floatZigzag 12s infinite;
+    animation-delay: 5.5s;
+    left: 55%;
+}
+
+.floating-emoji:nth-child(15) {
+    animation: floatWave 7s infinite;
+    animation-delay: 6.5s;
+    left: 65%;
+}
+
+.floating-emoji:nth-child(16) {
+    animation: floatUp1 13s infinite;
+    animation-delay: 0.8s;
+    left: 75%;
+}
+
+.floating-emoji:nth-child(17) {
+    animation: floatUp2 8s infinite;
+    animation-delay: 4.2s;
+    left: 85%;
+}
+
+.floating-emoji:nth-child(18) {
+    animation: floatUp3 11s infinite;
+    animation-delay: 2.8s;
+    left: 95%;
+}
+
+.floating-emoji:nth-child(19) {
+    animation: floatZigzag 9s infinite;
+    animation-delay: 7.5s;
+    left: 5%;
+}
+
+.floating-emoji:nth-child(20) {
+    animation: floatWave 10s infinite;
+    animation-delay: 1.8s;
+    left: 88%;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .floating-emoji {
+        font-size: 16px;
+    }
+    
+    .floating-emojis {
+        z-index: 0; /* Make sure it stays behind content on mobile */
+    }
+}
+
+/* Corner Sparkles */
+.corner-sparkles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.corner-sparkle {
+    position: absolute;
+    font-size: 12px;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes sparkleFromCorner1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(200px, -100px) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(400px, -200px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleFromCorner2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    60% {
+        transform: translate(-150px, -150px) rotate(-180deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(-300px, -300px) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleFromCorner3 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    70% {
+        transform: translate(-100px, 150px) rotate(270deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-200px, 300px) rotate(540deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleFromCorner4 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        transform: translate(100px, 100px) rotate(225deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(200px, 200px) rotate(450deg);
+        opacity: 0;
+    }
+}
+
+/* Corner positions and animations */
+.corner-sparkle.top-left {
+    top: 20px;
+    left: 20px;
+    animation: sparkleFromCorner1 6s infinite;
+}
+
+.corner-sparkle.top-right {
+    top: 20px;
+    right: 20px;
+    animation: sparkleFromCorner2 7s infinite;
+}
+
+.corner-sparkle.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    animation: sparkleFromCorner3 8s infinite;
+}
+
+.corner-sparkle.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    animation: sparkleFromCorner4 5s infinite;
+}
+
+/* Different delays for variety */
+.corner-sparkle:nth-child(1) { animation-delay: 0s; }
+.corner-sparkle:nth-child(2) { animation-delay: 1s; }
+.corner-sparkle:nth-child(3) { animation-delay: 2s; }
+.corner-sparkle:nth-child(4) { animation-delay: 3s; }
+.corner-sparkle:nth-child(5) { animation-delay: 1.5s; }
+.corner-sparkle:nth-child(6) { animation-delay: 2.5s; }
+.corner-sparkle:nth-child(7) { animation-delay: 3.5s; }
+.corner-sparkle:nth-child(8) { animation-delay: 0.5s; }
+
+/* Subtle pulsing background animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 105, 180, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 192, 203, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
+    animation: backgroundPulse 15s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+/* Romantic cursor trail effect */
+body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="16" font-size="16">💕</text></svg>'), auto;
+}
+
+.hand {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">💖</text></svg>'), pointer !important;
+}
+
+/* Subtle floating heart particles */
+.love-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.love-particle {
+    position: absolute;
+    font-size: 8px;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.6;
+}
+
+@keyframes gentleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.6;
+    }
+    95% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-50px) translateX(30px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Assign gentle float animation to particles */
+.love-particle:nth-child(1) {
+    animation: gentleFloat 20s infinite;
+    animation-delay: 0s;
+    left: 5%;
+}
+
+.love-particle:nth-child(2) {
+    animation: gentleFloat 25s infinite;
+    animation-delay: 5s;
+    left: 15%;
+}
+
+.love-particle:nth-child(3) {
+    animation: gentleFloat 22s infinite;
+    animation-delay: 10s;
+    left: 25%;
+}
+
+.love-particle:nth-child(4) {
+    animation: gentleFloat 18s infinite;
+    animation-delay: 15s;
+    left: 35%;
+}
+
+.love-particle:nth-child(5) {
+    animation: gentleFloat 24s infinite;
+    animation-delay: 3s;
+    left: 45%;
+}
+
+.love-particle:nth-child(6) {
+    animation: gentleFloat 21s infinite;
+    animation-delay: 8s;
+    left: 55%;
+}
+
+.love-particle:nth-child(7) {
+    animation: gentleFloat 19s infinite;
+    animation-delay: 13s;
+    left: 65%;
+}
+
+.love-particle:nth-child(8) {
+    animation: gentleFloat 23s infinite;
+    animation-delay: 18s;
+    left: 75%;
+}
+
+.love-particle:nth-child(9) {
+    animation: gentleFloat 26s infinite;
+    animation-delay: 6s;
+    left: 85%;
+}
+
+.love-particle:nth-child(10) {
+    animation: gentleFloat 20s infinite;
+    animation-delay: 11s;
+    left: 95%;
+}
+
+/* Click effect for canvas */
+.click-effect {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.8) 0%, transparent 70%);
+    pointer-events: none;
+    animation: clickRipple 0.8s ease-out;
+    z-index: 2;
+}
+
+@keyframes clickRipple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
 -->
         </style>
 </head>
     <body>
-        <div id="main">
-            <div id="wrap">
-                <div id="text">
-                    <div id="code">
-                        <font color="#0000FF">
-                            <span class="say">Chào bạn Cúc dễ thuông,</span><br>
-                            <span class="say"> </span><br>
-                            <span class="say">Em à, ngay từ lần đầu tiên gặp em,</span><br>
-                            <span class="say">anh đã biết rằng em chính là </span><br>
-                            <span class="say">người mà anh đang tìm kiếm.</span><br>
-                            <span class="say">Anh rất muốn có cơ hội để tìm hiểu và chia sẻ  </span><br>
-                            <span class="say">những khoảnh khắc tuyệt vời cùng em. </span><br>
-                            <span class="say"> </span><br>
-                            <span class="say"><span class="space"></span>-- Anh thích em! --</span><br>
-                            <span class="say"> </span><br>
-                            <span class="say"><span class="space"></span> --- Quang Tuấn ---</span>
-                        </font>
-                    </div>
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div class="loading-heart">
+                <div class="heart-container">
+                    <svg class="heart-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="cuteHeartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff69b4;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ff1493;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ffc0cb;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#ff69b4;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff1493;stop-opacity:1" />
+                            </linearGradient>
+                            <radialGradient id="heartShine" cx="30%" cy="30%" r="70%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+                            </radialGradient>
+                            <filter id="cuteGlow">
+                                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                                <feMerge> 
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <animateTransform id="heartPulse" attributeName="transform" attributeType="XML" 
+                                            type="scale" values="1;1.1;1.2;1.1;1" dur="2s" repeatCount="indefinite"/>
+                        </defs>
+                        
+                        <!-- Main heart shape with cute design -->
+                        <path d="M60,100 C60,100 25,75 25,50 C25,37 32,25 45,25 C52,25 57,30 60,35 C63,30 68,25 75,25 C88,25 95,37 95,50 C95,75 60,100 60,100 Z" 
+                              fill="url(#cuteHeartGradient)" 
+                              filter="url(#cuteGlow)"
+                              stroke="#ff1493" 
+                              stroke-width="2"/>
+                        
+                        <!-- Cute shine effect -->
+                        <ellipse cx="45" cy="40" rx="8" ry="12" fill="url(#heartShine)" transform="rotate(-20 45 40)"/>
+                        <ellipse cx="75" cy="40" rx="6" ry="10" fill="url(#heartShine)" transform="rotate(15 75 40)"/>
+                        
+                        <!-- Small cute hearts floating around -->
+                        <path d="M30,30 C30,30 25,28 25,25 C25,23 26,21 28,21 C29,21 30,22 30,23 C30,22 31,21 32,21 C34,21 35,23 35,25 C35,28 30,30 30,30 Z" 
+                              fill="#ffc0cb" opacity="0.8">
+                            <animateTransform attributeName="transform" type="translate" 
+                                            values="0,0; 2,-2; 0,0; -2,2; 0,0" dur="3s" repeatCount="indefinite"/>
+                        </path>
+                        
+                        <path d="M85,25 C85,25 82,23 82,21 C82,19 83,18 84,18 C85,18 85,19 85,19 C85,19 86,18 87,18 C88,18 89,19 89,21 C89,23 85,25 85,25 Z" 
+                              fill="#ff69b4" opacity="0.7">
+                            <animateTransform attributeName="transform" type="translate" 
+                                            values="0,0; -3,3; 0,0; 3,-3; 0,0" dur="2.5s" repeatCount="indefinite"/>
+                        </path>
+                    </svg>
+                    
+                    <!-- More sparkles for extra cuteness -->
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
                 </div>
-                
+            </div>
+            <div class="loading-text">Đang tải tình yêu...</div>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+            <div class="loading-subtitle">Chuẩn bị những điều ngọt ngào nhất cho em ✨</div>
+        </div>
+
+        <div id="main" class="loading">
+            <!-- Floating Emojis Background -->
+            <div class="floating-emojis">
+                <div class="floating-emoji">💖</div>
+                <div class="floating-emoji">🦋</div>
+                <div class="floating-emoji">💕</div>
+                <div class="floating-emoji">🌸</div>
+                <div class="floating-emoji">💝</div>
+                <div class="floating-emoji">🦋</div>
+                <div class="floating-emoji">💗</div>
+                <div class="floating-emoji">🌺</div>
+                <div class="floating-emoji">💘</div>
+                <div class="floating-emoji">🦋</div>
+                <div class="floating-emoji">💞</div>
+                <div class="floating-emoji">🌷</div>
+                <div class="floating-emoji">💓</div>
+                <div class="floating-emoji">🦋</div>
+                <div class="floating-emoji">💟</div>
+                <div class="floating-emoji">🌻</div>
+                <div class="floating-emoji">💜</div>
+                <div class="floating-emoji">🦋</div>
+                <div class="floating-emoji">💙</div>
+                <div class="floating-emoji">🌹</div>
+            </div>
+            
+            <!-- Corner Sparkles -->
+            <div class="corner-sparkles">
+                <div class="corner-sparkle top-left">✨</div>
+                <div class="corner-sparkle top-right">⭐</div>
+                <div class="corner-sparkle bottom-left">💫</div>
+                <div class="corner-sparkle bottom-right">🌟</div>
+                <div class="corner-sparkle top-left">✨</div>
+                <div class="corner-sparkle top-right">⭐</div>
+                <div class="corner-sparkle bottom-left">💫</div>
+                <div class="corner-sparkle bottom-right">🌟</div>
+            </div>
+            
+            <!-- Subtle Love Particles -->
+            <div class="love-particles">
+                <div class="love-particle">💕</div>
+                <div class="love-particle">💖</div>
+                <div class="love-particle">💗</div>
+                <div class="love-particle">💝</div>
+                <div class="love-particle">💞</div>
+                <div class="love-particle">💕</div>
+                <div class="love-particle">💖</div>
+                <div class="love-particle">💗</div>
+                <div class="love-particle">💝</div>
+                <div class="love-particle">💞</div>
+            </div>
+            
+            <div id="wrap">
                 <div id="clock-box">
                     <span class="STYLE1"></span>
                     <font color="#FF0000"></font>
@@ -49,15 +1311,70 @@
                     <div id="clock"></div>
                 </div>
                 
+                <div id="text">
+                     <div id="code">
+                        
+                        <div style="color: #ff69b4; font-weight: 600; line-height: 1.3;">
+                            <span class="say">💌 Chào Vợ Cúc dễ thương của anh,</span><br>
+                    
+                            <span class="say">🌸 Ngày đầu gặp em, anh chưa biết rằng trái tim mình đã chọn em từ lúc ấy.</span><br>
+                            <span class="say">😍 Ánh mắt em, nụ cười em – mọi thứ đều khiến anh nhớ mãi không quên.</span><br>
+                            <span class="say">🗓️ Đã tròn một năm kể từ khi ta bước vào thế giới của nhau,</span><br>
+                            <span class="say">💞 Mỗi khoảnh khắc bên em là một điều kỳ diệu – những buổi tối bình yên, những lần giận hờn vụng dại,</span><br>
+                            <span class="say">🙏 Cảm ơn em – vì đã chọn ở lại khi mọi thứ không hoàn hảo.</span><br>
+                            <span class="say">🌷 Cảm ơn em – vì luôn là người con gái tuyệt vời, dịu dàng và chân thành nhất.</span><br>
+                            <span class="say">❤️ Yêu em – không cần lý do, không cần điều kiện. Chỉ cần là em.</span><br>
+                            <span class="say">🤝 Anh không hứa sẽ luôn mang đến hạnh phúc trọn vẹn,</span><br>
+                            <span class="say">👂 Nhưng anh hứa sẽ luôn là người lắng nghe, chia sẻ, và bên em mọi chặng đường.</span><br>
+                            <span class="say">⏳ 1 năm – 365 ngày – 8760 giờ yêu thương 💕</span><br>
+                             <span class="say">♾️ Anh sẽ không đếm nữa, vì từ hôm nay… tình yêu dành cho em là vô hạn.</span><br>
+                            <span class="say">🌈 Hãy cùng nhau viết tiếp câu chuyện tình yêu này,</span><br>
+                            <span class="say">🌟 Anh sẽ luôn là người bạn đồng hành, là bờ vai vững chắc của em.</span><br>
+                            <span class="say" style="text-align: center; display: block; font-size: 24px; font-weight: 700; color: #ff1493;">
+                                <span class="space"></span>💖-Anh Yêu Em-💖
+                            </span>
+                            <span class="say" style="text-align: right; display: block; font-style: italic; font-size: 24px; color: #ff69b4;">
+                                <span class="space"></span>🌺-Quang Tuấn-🌺
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
                 <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
 
-            <audio id="background-music" src="./music/I-Do-911.mp3" preload="auto"></audio>
+            <audio id="background-music" src="./music/anh-nang-cua-anh.mp3" preload="auto"></audio>
         </div>
 
 
     <script>
-        (function(){
+        // Loading Screen Logic
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loadingScreen = document.getElementById('loading-screen');
+                const mainContent = document.getElementById('main');
+                
+                // Hide loading screen
+                loadingScreen.classList.add('hidden');
+                
+                // Show main content
+                mainContent.classList.remove('loading');
+                
+                // Remove loading screen after transition
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                }, 1000);
+                
+                // Start main animations after loading
+                setTimeout(function() {
+                    initializeMainApp();
+                }, 500);
+            }, 3500); // 3.5 seconds loading time
+        });
+
+        function initializeMainApp() {
+            // Main application code
+            (function(){
             var canvas = $('#canvas');
             
             if (!canvas[0].getContext) {
@@ -73,7 +1390,7 @@
             var opts = {
                 seed: {
                     x: width / 2 - 20,
-                    color: "rgb(190, 26, 37)",
+                    color: "#ff69b4", // Changed to cute pink color
                     scale: 2
                 },
                 branch: [
@@ -116,14 +1433,42 @@
                 var x = e.pageX - offset.left;
                 var y = e.pageY - offset.top;
 
+                // Create click effect
+                var clickEffect = $('<div class="click-effect"></div>');
+                clickEffect.css({
+                    left: x - 30,
+                    top: y - 30
+                });
+                canvas.parent().append(clickEffect);
+                
+                // Remove effect after animation
+                setTimeout(function() {
+                    clickEffect.remove();
+                }, 800);
+
                 if (seed.hover(x, y)) {
                     hold = 0;
                     canvas.unbind("click");
                     canvas.unbind("mousemove");
                     canvas.removeClass('hand');
+                    
+                    // Hide the heart completely
+                    seed.hide();
+                    
                     // Phát nhạc khi click vào trái tim
                     try {
-                        document.getElementById('background-music').play();
+                        var audio = document.getElementById('background-music');
+                        audio.volume = 0;
+                        audio.play();
+                        
+                        // Fade in audio gradually
+                        var fadeIn = setInterval(function() {
+                            if (audio.volume < 0.7) {
+                                audio.volume += 0.02;
+                            } else {
+                                clearInterval(fadeIn);
+                            }
+                        }, 50);
                     } catch(e) {
                         console.log("Không thể phát nhạc:", e);
                     }
@@ -140,11 +1485,11 @@
                 while (hold) {
                     $await(Jscex.Async.sleep(10));
                 }
-                while (seed.canScale()) {
+                while (seed.canScale() && !seed.hidden) {
                     seed.scale(0.95);
                     $await(Jscex.Async.sleep(10));
                 }
-                while (seed.canMove()) {
+                while (seed.canMove() && !seed.hidden) {
                     seed.move(0, 2);
                     foot.draw();
                     $await(Jscex.Async.sleep(10));
@@ -175,13 +1520,18 @@
                 tree.snapshot("p2", 500, 0, 610, 680);
 
                 canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-                canvas.css("background", "#ffe");
+                // Thay đổi từ #ffe sang màu hồng nhạt phù hợp với theme
+                canvas.css("background", "rgba(255, 238, 240, 0.8)");
                 $await(Jscex.Async.sleep(300));
-                canvas.css("background", "none");
+                canvas.css("background", "transparent");
             }));
 
             var jumpAnimate = eval(Jscex.compile("async", function () {
                 var ctx = tree.ctx;
+                // Clear the seed completely before starting jump animation
+                if (seed.hidden) {
+                    seed.clear();
+                }
                 while (true) {
                     tree.ctx.clearRect(0, 0, width, height);
                     tree.jump();
@@ -198,7 +1548,8 @@
                 together.setSeconds(0);					
                 together.setMilliseconds(0);			
 
-                $("#code").show().typewriter();
+                // Hiển thị phần code với hiệu ứng fade in mà không có typewriter
+                $("#code").show();
                 $("#clock-box").fadeIn(500);
                 while (true) {
                     timeElapse(together);
@@ -219,6 +1570,7 @@
 
             runAsync().start();
         })();
+        } // End initializeMainApp function
     </script>
 
     <script type="text/javascript">
